@@ -5,9 +5,7 @@ public class StringCalculator {
             return 0;
         }
 
-        if (!numbers.contains(",")) {
-            return Integer.parseInt(numbers);
-        }
+        numbers = numbers.replace("\n", ",");
 
         String[] numArray = numbers.split(",");
         int sum = 0;

@@ -25,4 +25,19 @@ public class StringCalculatorTest {
         assertEquals(15, calculator.add("1,2,3,4,5"));
     }
 
+    @Test
+    public void shouldHandleNewlineBetweenNumbers() {
+        assertEquals(6, calculator.add("1\n2,3"));
+    }
+
+    @Test
+    public void shouldHandleNewlinesAndCommas() {
+        assertEquals(12, calculator.add("1,2\n3,4\n2"));
+    }
+
+    @Test
+    public void shouldHandleOnlyNewlines() {
+        assertEquals(6, calculator.add("1\n2\n3"));
+    }
+
 }
