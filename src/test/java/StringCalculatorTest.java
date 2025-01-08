@@ -20,4 +20,9 @@ public class StringCalculatorTest {
         assertEquals(6, calculator.add("1,5"));
     }
 
+    @Test
+    public void shouldReturnSumOfMultipleNumbers() {
+        assertEquals(15, calculator.add("1,2,3,4,5"));
+    }
+
 }
