@@ -14,4 +14,10 @@ public class StringCalculatorTest {
     public void shouldReturnNumberWhenSingleNumberProvided() {
         assertEquals(1, calculator.add("1"));
     }
+
+    @Test
+    public void shouldReturnSumOfTwoNumbers() {
+        assertEquals(6, calculator.add("1,5"));
+    }
+
 }
