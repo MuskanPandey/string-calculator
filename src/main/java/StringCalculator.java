@@ -30,9 +30,25 @@ public class StringCalculator {
         String[] numArray = numbers.split(",");
 
         int sum = 0;
+        StringBuilder negativeNumbers = new StringBuilder();
+
         for (String num : numArray) {
-            sum += Integer.parseInt(num);
+            int number = Integer.parseInt(num);
+
+            if (number < 0) {
+                if (negativeNumbers.length() > 0) {
+                    negativeNumbers.append(",");
+                }
+                negativeNumbers.append(number);
+            } else {
+                sum += number;
+            }
         }
+
+        if (negativeNumbers.length() > 0) {
+            throw new IllegalArgumentException("Negative numbers not allowed: " + negativeNumbers);
+        }
+
         return sum;
     }
 }
