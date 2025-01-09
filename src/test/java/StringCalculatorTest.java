@@ -40,4 +40,24 @@ public class StringCalculatorTest {
         assertEquals(6, calculator.add("1\n2\n3"));
     }
 
+    @Test
+    public void shouldHandleCustomDelimiter() {
+        assertEquals(6, calculator.add("//;\n1;2;3"));
+    }
+
+    @Test
+    public void shouldHandleCustomDelimiterHash() {
+        assertEquals(10, calculator.add("//#\n1#2#3#4"));
+    }
+
+    @Test
+    public void shouldHandleCustomDelimiterWithBrackets() {
+        assertEquals(10, calculator.add("//[;]\n1;2;3;4"));
+    }
+
+    @Test
+    public void shouldHandleMultipleDelimiters() {
+        assertEquals(10, calculator.add("//[;][#]\n1;2#3;4"));
+    }
+
 }
