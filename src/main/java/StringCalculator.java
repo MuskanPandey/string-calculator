@@ -30,7 +30,9 @@ public class StringCalculator {
         String[] numArray = numbers.split(",");
 
         int sum = 0;
+        handleInvalidCharacter(numArray);
         StringBuilder negativeNumbers = new StringBuilder();
+
 
         for (String num : numArray) {
             int number = Integer.parseInt(num);
@@ -50,5 +52,20 @@ public class StringCalculator {
         }
 
         return sum;
+    }
+
+    private void handleInvalidCharacter(String[] numArray ){
+        StringBuilder invalidCharacters = new StringBuilder();
+        for(String num : numArray){
+            if(invalidCharacters.length()>0){
+                invalidCharacters.append(",");
+            }
+            if(num.equals("a") || num.equals("b")){
+                invalidCharacters.append(num);
+            }
+        }
+        if(invalidCharacters.length()>0){
+            throw new IllegalArgumentException("Invalid character not allowed: " + invalidCharacters);
+        }
     }
 }

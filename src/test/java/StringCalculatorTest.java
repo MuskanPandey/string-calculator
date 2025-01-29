@@ -67,5 +67,19 @@ public class StringCalculatorTest {
         });
         assertEquals("Negative numbers not allowed: -2,-4", exception.getMessage());
     }
+    // 1,2,a
+    @Test
+    public void ShouldHandleInvalidCharacterAndReturnTheSum(){
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, ()->{
+        calculator.add("1,2,a");
+        });
+        IllegalArgumentException exception1 = assertThrows(IllegalArgumentException.class, ()->{
+            calculator.add("1,2,a,b");
+        });
+        assertEquals("Invalid character not allowed: a", exception.getMessage());
+        assertEquals("Invalid character not allowed: a,b", exception1.getMessage());
+
+    }
+
 
 }
